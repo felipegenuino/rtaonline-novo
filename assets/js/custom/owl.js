@@ -8,8 +8,8 @@
 $(document).ready(function() {
   
   $(".banner-home-main").owlCarousel({
-    autoPlay : 3000,
-    stopOnHover : true,
+    //autoPlay : 3000,
+    //stopOnHover : true,
     navigation:false,
     paginationSpeed : 1000,
     goToFirstSpeed : 2000,
@@ -24,12 +24,55 @@ $(document).ready(function() {
 
 
 
+ $("#navigation-profissionais").owlCarousel({
+    
+     paginationSpeed : 1000,
+    goToFirstSpeed : 2000,
+    singleItem : true,
+    //autoHeight : true,
+
+    addClassActive: true,
+
+     // Navigation
+    navigation : false,
+    navigationText : ["prev","next"],
+    rewindNav : true,
+    scrollPerPage : false,
+
+     //Pagination
+    pagination : false,
+    paginationNumbers: false,
+
+    mouseDrag:false,
+
+   });
+
+
+ 
+
+ $(".profissionais-btn").click(function () {
+    $(".profissionais-btn").removeClass("active");
+    $(this).addClass("active");   
+});
+
+
+ 
+ 
+ $('.profissionais-btn-map').click(function(){
+    $("#navigation-profissionais").trigger('owl.goTo', 1)       
+  });
+
+$('.profissionais-btn-table').click(function(){
+    $("#navigation-profissionais").trigger('owl.goTo', 0)
+  });
+
+
   
 
 $('.slider-publicacoes-main').owlCarousel({
     loop:true,
     margin:10,
-    navigation:true,
+    navigation:false,
     dots:true,
     navigationText: ["anterior","próximo"],
     responsive:{
@@ -40,7 +83,7 @@ $('.slider-publicacoes-main').owlCarousel({
             items:3
         },
         1000:{
-            items:5
+            items:4
         }
     }
 })

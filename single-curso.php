@@ -23,25 +23,83 @@ get_header(); ?>
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 			<div class="entry-content">
 
-			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="row">
-					<div class="column">
-						<?php the_post_thumbnail( '', array('class' => 'th') ); ?>
-					</div>
-				</div>
-			<?php endif; ?>
+	 
 
 			<div class="card-page-curso">
 					<!-- <h3><?php the_field('acf_curso_name'); ?></h3> -->
+ 
+ 
 
 
-<?php $description = get_field('acf_curso_descricao_do_curso');	
+<?php $description = get_field('acf_curso_informacoes-adicionais');	
 	if( !empty($description) ): ?>
-		<?php the_field('acf_curso_descricao_do_curso'); ?>
+		<?php the_field('acf_curso_informacoes-adicionais'); ?>
 		<hr>
 <?php endif; ?>			
 
 <ul class="card-page-curso__nav">
+
+
+<?php $terms = get_the_terms( $post->ID , 'formacao' ); foreach ( $terms as $term ) {   $tipodeinformacao = $term->slug; $tipodeinformacaoNome = $term->name; }?>
+
+<?php switch ($tipodeinformacao) {
+
+	case 'basico': ?>
+
+		<li class="card-page-curso__list card-page-curso__list-apresentacao"> <strong class="card-page-curso__list--label">Apresentação Curso <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__basico__apresentacao', 'option'); ?> 
+		</li>
+
+		<li class="card-page-curso__list card-page-curso__list-programa"> <strong class="card-page-curso__list--label">Programa do Curso  <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__basico__programa', 'option'); ?>
+		</li>
+ <?php  break;
+	
+
+	case 'avancado-adulto': ?>
+ 
+		<li class="card-page-curso__list card-page-curso__list-apresentacao"> <strong class="card-page-curso__list--label">Apresentação Curso <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__avancado-adulto__apresentacao', 'option'); ?> 
+		</li>
+		<li class="card-page-curso__list card-page-curso__list-programa"> <strong class="card-page-curso__list--label">Programa do Curso <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__avancado-adulto__programa', 'option'); ?>
+		</li>
+
+ <?php break;
+	
+	case 'avancado-neonatologia': ?>
+ 
+		<li class="card-page-curso__list card-page-curso__list-apresentacao"> <strong class="card-page-curso__list--label">Apresentação do Curso <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__avancado-neonatologia__apresentacao', 'option'); ?> 
+		</li>
+		<li class="card-page-curso__list card-page-curso__list-programa"> <strong class="card-page-curso__list--label">Programa do Curso <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__avancado-neonatologia__programa', 'option'); ?>
+		</li>
+
+ <?php break;
+
+	case 'avancado-pediatria': ?>
+ 
+		<li class="card-page-curso__list card-page-curso__list-apresentacao"> <strong class="card-page-curso__list--label">Apresentação do Curso  <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__avancado-pediatria__apresentacao', 'option'); ?> 
+		</li>
+		<li class="card-page-curso__list card-page-curso__list-programa"> <strong class="card-page-curso__list--label">Programa do Curso  <?php echo $tipodeinformacaoNome; ?> </strong> 
+		<?php the_field('acf_formacao__avancado-pediatria__programa', 'option'); ?>
+		</li>
+
+ <?php break;
+
+	default:
+		echo "nada";
+		break;
+} ?>
+
+
+ 
+
+ 
+
+
 	<li class="card-page-curso__list card-page-curso__list-local"> <strong class="card-page-curso__list--label">Local:</strong>  <?php the_field('acf_curso_endereco_descritivo'); ?>
 
 
@@ -58,7 +116,7 @@ get_header(); ?>
 	 </li>
 	<li class="card-page-curso__list card-page-curso__list-carga-horaria"> <strong class="card-page-curso__list--label">Carga horária:</strong>  <?php the_field('acf_curso_carga_horaria'); ?>  horas/aula </li>
 	<li class="card-page-curso__list card-page-curso__list-forma-de-pagamento"> <strong class="card-page-curso__list--label">Formas de pagamento:</strong>  <?php the_field('acf_curso_formas_de_pagamento'); ?>  </li>
-	<li class="card-page-curso__list card-page-curso__list-deposito"> <strong class="card-page-curso__list--label">Depósito Bancário:</strong>  <?php the_field('acf_curso_deposito_bancario'); ?>  </li>
+	<li class="card-page-curso__list card-page-curso__list-deposito"> <strong class="card-page-curso__list--label">Depósito Bancário:</strong>  <?php the_field('acf_cursos__forma_de_pagamento__deposito', 'option'); ?>  </li>
 </ul>
 
 

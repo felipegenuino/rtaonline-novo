@@ -28,7 +28,7 @@ get_header(); ?>
 
 
  	      <?php if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
- 	      		<div class="small-6 medium-4 large-3 columns">
+ 	      		<div class="small-6 medium-4  columns">
 
 					<article <?php post_class('instrutor-item') ?> id="post-<?php the_ID(); ?>">
 

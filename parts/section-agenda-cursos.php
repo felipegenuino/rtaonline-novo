@@ -1,4 +1,4 @@
- <?php is_tax( 'nivel', 'basico')  ?>
+ <?php is_tax( 'formacao', 'basico')  ?>
  
 <section class="<?php if ( is_home() ) { ?>    section-content   <?php }?>">
   
@@ -41,7 +41,7 @@ if ( is_home() ) {
             <ul class="agenda-cursos__lista">
                <?php
                   //$num_posts = ( is_front_page() ) ? 4 : -1;
-                  $args = array('post_type' => 'curso', 'posts_per_page' => -1,  'nivel' => 'basico');
+                  $args = array('post_type' => 'curso', 'posts_per_page' => -1,  'formacao' => 'basico');
                   $query = new WP_Query($args);
                   ?>
                <?php if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
@@ -49,7 +49,15 @@ if ( is_home() ) {
 
 
                    <li class="agenda-cursos__lista--item agenda-cursos__lista--item-basico"  id="post-<?php the_ID(); ?>">
-                            <a class="agenda-cursos__lista--item-link agenda-cursos__lista--item-link-basico" href="<?php the_permalink(); ?>">  <i class="agenda-cursos__lista--item-link-icon agenda-cursos__lista--item-link-icon-basico fa fa-calendar"></i> <?php the_title(); ?></a>
+                            <a class="agenda-cursos__lista--item-link agenda-cursos__lista--item-link-basico" href="<?php the_permalink(); ?>"> 
+                          <div class="course-list-icon">  
+                              <i class="agenda-cursos__lista--item-link-icon agenda-cursos__lista--item-link-icon-basico fa fa-calendar"></i> 
+                              </div>     
+                            <div class="course-list-content"> 
+                              <span class="course-list-content-title"><?php the_title(); ?></span>
+                              <span class="course-list-content-subtitle"><?php the_field('acf_curso_data'); ?> </span>
+                            </div>
+                            </a>
                    </li>
                 <?php //endif; ?>
                
@@ -66,21 +74,34 @@ if ( is_home() ) {
                <img class="agenda-cursos__header--image" src="<?php bloginfo('template_directory'); ?>/assets/img/brand/simbol-dark.svg" alt="" />
                <h2 class="agenda-cursos__header--title agenda-cursos__header--title-avancado">Curso Avançado</h2>
             </header>
-            <ul class="agenda-cursos__lista">
+            <table class="agenda-cursos__lista">
                <?php
                   //$num_posts = ( is_front_page() ) ? 4 : -1;
-                  $args = array('post_type' => 'curso', 'posts_per_page' => -1, 'nivel' => 'avancado' );
+                  $args = array(
+                    'post_type' => 'curso', 
+                    'posts_per_page' => -1, 
+                    'formacao' => array( 'avancado-neonatologia', 'avancado-adulto', 'avancado-pediatria'),
+                     );
                   $query = new WP_Query($args);
                   ?>
                <?php if ( $query->have_posts() ) : while( $query->have_posts() ) : $query->the_post(); ?>
                <?php // if (get_field('acf_curso_nivel') == 'Curso avançado'): ?>
                 <li class="agenda-cursos__lista--item agenda-cursos__lista--item-avancado" id="post-<?php the_ID(); ?>">
-                            <a class="agenda-cursos__lista--item-link agenda-cursos__lista--item-link-avancado" href="<?php the_permalink(); ?>"> <i class="agenda-cursos__lista--item-link-icon agenda-cursos__lista--item-link-icon-avancado fa fa-calendar"></i> <?php the_title(); ?></a>
+                            <a class="agenda-cursos__lista--item-link agenda-cursos__lista--item-link-avancado" href="<?php the_permalink(); ?>">
+                             
+                   <div class="course-list-icon"> 
+                             <i class="agenda-cursos__lista--item-link-icon agenda-cursos__lista--item-link-icon-avancado fa fa-calendar"></i> 
+                         </div>     
+                            <div class="course-list-content"> 
+                              <span class="course-list-content-title"><?php the_title(); ?></span>
+                              <span class="course-list-content-subtitle"><?php the_field('acf_curso_data'); ?> </span>
+                            </div>
+                          </a>
                     </li>
                <?php //endif; ?>
                 
                <?php endwhile; endif; wp_reset_postdata(); ?>
-            </ul>
+            </table>
          </section>
       </div>  <!-- //small-12 columns -->
 
