@@ -14,13 +14,13 @@
       <img class="top-brand__image" src="<?php bloginfo('template_directory'); ?>/assets/img/brand/simbol-light.svg" alt="" />
      </a>
     <nav  role="navigation" >
-     <span class="hide-for-medium-down">
+     <span class="hide-for-small">
        <?php menuPrincipal(); ?>
      </span>
              	
 
              
-              <ul id="menu-principal-mobile" class="menu-principal show-for-medium-down">
+              <ul id="menu-principal-mobile" class="menu-principal show-for-small">
                 <li><a href="#" class="left-off-canvas-toggle menu-icon">Menu</a></li>
               </ul>
 

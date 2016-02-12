@@ -27,6 +27,27 @@
 		</div>
 	</section> -->
 
+
+
+
+<section class="section-social-medias-facebook">
+	<div class="row">
+		<div class="small-12 columns">
+
+			<div class="fb-like" data-href="http://rtaonline.com.br/" 
+  data-layout="standard" data-action="like" data-show-faces="true" data-share="true" data-colorscheme="dark">
+</div>
+
+
+
+		</div><!-- //small-12  -->
+	</div> <!-- //row -->
+</section>
+
+
+ 
+
+
 	<section class="section-contact-footer">
 		<div class="row">
 						<div class="small-12 medium-4 columns">
@@ -52,20 +73,24 @@
 			</div> <!-- //row -->
  	</section>
 
-	<section class="section-social-medias">
-		<div class="row">
-					<div class="small-12 columns">
+
+<section class="section-social-medias">
+	<div class="row">
+		<div class="small-12 columns">
 							<header class="header-title-center">
 								<h3>Redes Sociais</h3>
 								<ul class="lista-midias-sociais">
-									<li class="facebook"><a href="https://www.facebook.com/rta.metodo"> <img src="<?php bloginfo('template_directory'); ?>/assets/img/social/facebook.png" alt="Facebook" /></a> </li>
-									<li class="youtube"><a href="https://www.youtube.com/user/MetodoRTA"> <img src="<?php bloginfo('template_directory'); ?>/assets/img/social/youtube.png" alt="Youtube" /></a></li>
-									<li class="gplus"><a href="https://plus.google.com/+MétodoRTA/"> <img src="<?php bloginfo('template_directory'); ?>/assets/img/social/gplus.png" alt="gPlus" /></a></li>
+									<li class="facebook">	<a target="_blank" href="https://www.facebook.com/rta.metodo"> <i class="fa fa-facebook-official"></i></a> </li>
+									<li class="youtube">	<a target="_blank" href="https://www.youtube.com/user/MetodoRTA">  <i class="fa fa-youtube-play"></i> </a></li>
+									<li class="gplus">		<a target="_blank" href="https://plus.google.com/+MétodoRTA/">  <i class="fa fa-google-plus"></i></a></li>
+                  					<li class="twitter">	<a target="_blank" href="#"> <i class="fa fa-twitter"></i></a></li>
 								</ul>
  							</header>
-					</div><!-- //small-12  -->
-		</div> <!-- //row -->
-	</section>
+</div><!-- //small-12  -->
+</div> <!-- //row -->
+</section>
+
+
 
 	<?php //dynamic_sidebar( 'footer-widgets' ); ?>
 	<?php do_action( 'foundationpress_after_footer' ); ?>
@@ -75,6 +100,31 @@
 	<?php do_action( 'foundationpress_layout_end' ); ?>
 	</div>
 </div>
+
+
+
+
+
+
+
+
+<div id="modal-popup" class="reveal-modal modal__popup" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+		 <header class="modal__header">
+ 		 	<h3 class="modal__header--title">Feedback</h3>
+		 </header>
+		 <div class="modal__conteudo ">
+		 	<h3 class="modal__conteudo--title">Olá Visitante ;)</h3>
+		        <p>Nosso site está de cara nova. </p>
+		     	<p>Estamos trabalhando para garantir que o site esteja 100% amigável e por isso o seu feedback é muito importante para nós.</p>
+		      <p> Caso você tenha alguma dúvida ou sugestão entre em contato conosco por chat ou diretamente pelo e-mail <a href="mailto:rtaonline@gmail.com">rtaonline@gmail.com </a></p>		  		 		
+		 </div>
+
+		  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div> <!-- // modal -->
+
+<a href="#" data-reveal-id="modal-popup" class="modal-feedback-button"><i class="fa fa-question-circle"></i> Feedback</a>
+
+
 <?php wp_footer(); ?>
 <?php do_action( 'foundationpress_before_closing_body' ); ?>
 
@@ -82,110 +132,38 @@
      <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/libs/owl-carousel/owl.carousel.min.js"></script>
      <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/custom/owl.js"></script>
 
-     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.js"></script>
-      <script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-22530543-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
 
-$( function() {
 
-  createItems();
-
-  var $container = $('#isotope-container').isotope({
-    itemSelector: '.isotope-item'
-  });
-
-  var $output = $('#isotope-output');
-
-  // filter with selects and checkboxes
-  var $selects = $('#isotope-form-ui select');
-  var $checkboxes = $('#isotope-form-ui input');
-  
-  $selects.add( $checkboxes ).change( function() {
-    // map input values to an array
-    var exclusives = [];
-    var inclusives = [];
-    // exclusive filters from selects
-    $selects.each( function( i, elem ) {
-      if ( elem.value ) {
-        exclusives.push( elem.value );
-      }
-    });
-    // inclusive filters from checkboxes
-    $checkboxes.each( function( i, elem ) {
-      // if checkbox, use value if checked
-      if ( elem.checked ) {
-        inclusives.push( elem.value );
-      }
-    });
-
-    // combine exclusive and inclusive filters
-
-    // first combine exclusives
-    exclusives = exclusives.join('');
-    
-    var filterValue;
-    if ( inclusives.length ) {
-      // map inclusives with exclusives for
-      filterValue = $.map( inclusives, function( value ) {
-        return value + exclusives;
-      });
-      filterValue = filterValue.join(', ');
-    } else {
-      filterValue = exclusives;
-    }
-
-    $output.text( filterValue );
-    $container.isotope({ filter: filterValue })
-  });
-
-      
-  
-});
+<!--Start of Zopim Live Chat Script-->
+<script type="text/javascript">
+window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
+$.src="//v2.zopim.com/?3fHQMi2jPhbMZ6ce9iGkaMKg5r4h2g4p";z.t=+new Date;$.
+type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
+</script>
+<!--End of Zopim Live Chat Script-->
 
 
-var colors = [ 'red', 'green', 'blue', 'orange' ];
-var sizes = [ 'small', 'medium', 'large' ];
-var prices = [ 10, 20, 30 ];
 
-function createItems() {
 
-  var $items;
-  // loop over colors, sizes, prices
-  // create one item for each
-  for (  var i=0; i < colors.length; i++ ) {
-    for ( var j=0; j < sizes.length; j++ ) {
-      for ( var k=0; k < prices.length; k++ ) {
-        var color = colors[i];
-        var size = sizes[j];
-        var price = prices[k];
-        var $item = $('<div />', {
-          'class': 'isotope-item ' + color + ' ' + size + ' price' + price
-        });
-        $item.append( '<p>' + size + '</p><p>$' + price + '</p>');
-        // add to items
-        $items = $items ? $items.add( $item ) : $item;
-      }
-    } 
-  }
 
-  $items.appendTo( $('#isotope-container') );
-
-}
-
-      </script>
-
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/vendor/jquery.cookie.js"></script>
 
 <script> 
-
-
-
-
-
-
 	$(document).ready(function() {
-
-
-
        // grab an element
 		var myElement = document.querySelector(".main-header");
 		// construct an instance of Headroom, passing the element
@@ -195,10 +173,36 @@ function createItems() {
     });
 
 
- 
 
+
+//modal com cookie
+ $(document).ready(function() {
+  if ($.cookie('modal_shown') == null) {
+      $.cookie('modal_shown', 'yes', { expires: 7, path: '/' });
+      setTimeout(function(){
+         $("#modal-popup").foundation('reveal', 'open');
+      }, 3000);
+   }
+});
+  // $("#modal-popup").foundation('reveal', 'open');
 
 
 </script>
+
+
+<div id="fb-root"></div> 
+ 
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
 </body>
 </html>

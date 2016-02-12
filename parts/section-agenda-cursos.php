@@ -14,7 +14,7 @@ if ( is_home() ) {
       <div class="small-12 columns">
          <header class="header-group">
             <h2 class="header-group__title">Agenda <br> de Cursos</h2>
-            <p class="header-group__subtitle"> Perferendis, ad libero rem aliquid quisquam hic reprehenderit. </p>
+            <!-- p class="header-group__subtitle"> Perferendis, ad libero rem aliquid quisquam hic reprehenderit. </p -->
          </header>
       </div>
       <!-- //small-12  -->

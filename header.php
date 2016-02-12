@@ -1,20 +1,9 @@
-<?php
-/**
- * The template for displaying the header
- *
- * Displays all of the head element and everything up until the "container" div.
- *
- * @package WordPress
- * @subpackage FoundationPress
- * @since FoundationPress 1.0.0
- */
-
-?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
 		<link rel="icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icons/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icons/apple-touch-icon-144x144-precomposed.png">
@@ -33,18 +22,17 @@
  		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic,700italic,300italic,100italic,100,900,900italic">
  
 
-
-
+ 		<title>RTA Online | O Cuidado Global começa com uma respiração tranquila</title>
 
 		<link rel="canonical" href="<?php bloginfo('url'); ?>" />
-		<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">
-		<meta name="keywords" content="Lorem, ipsum, dolor, sit, amet, consectetur, adipisicing, elit">
+		<meta name="description" content="O Método RTA pode ser aplicado a pacientes de todas as idades e patologias que resultem em disfunção respiratória, desde o prematuro até o adulto.">
+		<meta name="keywords" content="metodo rta, rta, cuidado global, mariângela pinheiro de lima, fisioterapia, fisioterapia adulto, fisioterapia neonatal, fisioterapia pediatrica, rta online">
 		<meta property="og:locale" content="pt_PT" />
 		<meta property="og:type" content="website">
-		<meta property="og:title" content="titulo da página" />
-		<meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
+		<meta property="og:title" content="O Cuidado Global começa com uma respiração tranquila - RTA" />
+		<meta property="og:description" content="O Método RTA pode ser aplicado a pacientes de todas as idades e patologias que resultem em disfunção respiratória, desde o prematuro até o adulto." />
 		<meta property="og:url" content="<?php bloginfo('url'); ?>" />
-		<meta property="og:site_name" content="Sobre a página" />
+		<meta property="og:site_name" content="RTA Online | O Cuidado Global começa com uma respiração tranquila" />
 
 		<meta property="og:image" content="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/seo/facebook.jpg">
 		<meta property="og:image:type" content="image/jpeg">
@@ -53,8 +41,7 @@
 
 		<meta name="twitter:card" content="summary_large_image"/>
 		<meta name="twitter:site" content="<?php bloginfo('url'); ?>"/>
-		<meta name="twitter:domain" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."/>
-
+		<meta name="twitter:domain" content="O Método RTA pode ser aplicado a pacientes de todas as idades e patologias que resultem em disfunção respiratória, desde o prematuro até o adulto."/>
 
 		<meta name="twitter:image:src" content="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/seo/facebook.jpg"/>
 
